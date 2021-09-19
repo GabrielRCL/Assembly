@@ -25,7 +25,7 @@ Hotkey_de_ManaPotion = {F4}				;Hotkey da ManaPotion no TIBIA!!! irá ser pressio
 ;==============================[GLOBAL]==============================
 ; The contents of this file can be copied directly into your script. Alternately, you can copy the classMemory.ahk file into your library folder,
 ; in which case you will need to use the #include directive in your script i.e. 
-#Include <classMemory>
+#Include classMemory.ahk
 #Persistent
 #SingleInstance Force
 #MaxHotkeysPerInterval 99000000
@@ -76,11 +76,10 @@ return
 ;==============================[Auto_Heal_Mana]==============================
 Auto_Heal_Mana:
 ; read a pointer - mem.BaseAddress is automatically set to the base address.
-Mana := memMana.read(memMana.BaseAddress + 0x00DD8C5C, "Int", 0xC0, 0x6D4, 0x18, 0x610, 0x3C, 0, 0x710)
-ManaMAX := memMana.read(memMana.BaseAddress + 0x00DD8C5C, "Int", 0xC0, 0x6D4, 0x18, 0x610, 0x3C, 0, 0x718)
+Mana := memMana.read(memMana.BaseAddress + 0x00E92D88, "Int", 0xC, 0x10, 0x24, 0, 0xBC, 0x4, 0x44)
+ManaMAX := memMana.read(memMana.BaseAddress + 0x00E92D88, "Int", 0x8, 0x4, 0x24, 0, 0xBC, 0x4, 0x48)
 Sleep 100
-if ( ((Mana/ManaMAX)*100) <= Porcentagem_Para_Healar_Mana )
-{
+if ( ((Mana/ManaMAX)*100) <= Porcentagem_Para_Healar_Mana ) {
 	ControlSend,, %Hotkey_de_ManaPotion%, ahk_class Qt5QWindowOwnDCIcon
 	Sleep 500
 }

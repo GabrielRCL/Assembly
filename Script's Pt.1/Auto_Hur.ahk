@@ -24,7 +24,7 @@ Hotkey_de_UtaniHur = {NumpadDiv}
 ;==============================[GLOBAL]==============================
 ; The contents of this file can be copied directly into your script. Alternately, you can copy the classMemory.ahk file into your library folder,
 ; in which case you will need to use the #include directive in your script i.e. 
-#Include <classMemory>
+#Include classMemory.ahk
 #Persistent
 #SingleInstance Force
 #MaxHotkeysPerInterval 99000000
